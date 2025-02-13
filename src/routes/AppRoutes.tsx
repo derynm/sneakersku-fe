@@ -1,13 +1,23 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "../pages/home";
+import Login from "../pages/auth/login";
+import Register from "../pages/auth/register";
+import Layout from "../components/base/Layout";
+import Detail from "../pages/product/detail";
 
 const AppRoutes = () => {
     return (
       <BrowserRouter>
-          <Routes>
+        <Routes>
+          <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
-          </Routes>
+            <Route path="product/:id" element={<Detail />} />
+          </Route>
+
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
       </BrowserRouter>
     );
   };
