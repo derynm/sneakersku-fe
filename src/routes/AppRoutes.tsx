@@ -5,6 +5,7 @@ import Login from "../pages/auth/login";
 import Register from "../pages/auth/register";
 import Layout from "../components/base/Layout";
 import Detail from "../pages/product/detail";
+import Profile from "../pages/user/profile";
 
 const AppRoutes = () => {
     return (
@@ -13,6 +14,7 @@ const AppRoutes = () => {
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
             <Route path="product/:id" element={<Detail />} />
+            <Route path="profile" element={<Profile />} />
           </Route>
 
           <Route path="/login" element={<Login />} />

@@ -1,10 +1,12 @@
 import axios, { InternalAxiosRequestConfig } from 'axios'
 import { useCookies } from 'react-cookie'
 import { service } from './index.ts'
+import { useNavigate } from 'react-router-dom'
 
 type ApiService = ReturnType<typeof service>
 
 export const useApi = (): ApiService => {
+  const navigate = useNavigate()
   const [cookies] = useCookies(['token'])
 
   const axiosInstance = axios.create({
@@ -24,7 +26,7 @@ export const useApi = (): ApiService => {
     },
     (error) => {
       if (error.response?.status === 401) {
-        alert('Session expired, please log in again.')
+        navigate('/login')
       }
       return Promise.reject(error)
     }

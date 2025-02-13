@@ -35,6 +35,8 @@ export const service = (axios: AxiosInstance) => {
     postLogin: (opt: AxiosRequestConfig) => api.post('/auth/login', opt),
     postRegister: (opt: AxiosRequestConfig) => api.post('/auth/register', opt),
     getCurrentUser: () => api.get('/auth/me'),
+    getUserProfile: () => api.get(`/users`),
+    postAddress: (opt: AxiosRequestConfig) => api.post('/addresses', opt),
 
     // products
     getProducts: () => api.get('/shoes'),
