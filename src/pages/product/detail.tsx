@@ -57,6 +57,7 @@ function Detail() {
               ))}
             </div>
           </div>
+          <p>{quantity}</p>
           <QuantityAdjuster onQuantityChange={handleQuantityChange} />
           <button 
             type="submit"

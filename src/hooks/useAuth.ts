@@ -13,7 +13,7 @@ const useAuth = () => {
 
     const login = async (email: string, password: string) => {
         try {
-            const response = await api.postLogin({
+            const response: any = await api.postLogin({
                 data: {
                     email,
                     password
@@ -55,7 +55,7 @@ const useAuth = () => {
     const getMe = async () => {
         try {
             const response = await api.getCurrentUser();
-            setUser(response);
+            setUser(response as any);
         } catch (error) {
             console.log(error)
         }

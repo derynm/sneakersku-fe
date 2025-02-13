@@ -15,7 +15,7 @@ function Navbar() {
               <p onClick={()=> logout()} className="cursor-pointer">Logout</p>
             </div>
           ) : (
-            <div>
+            <div className="flex gap-4">
               <a href="/login" className="mr-4 block">Login</a>
               <a href="/register" className="block">Register</a>
             </div>
