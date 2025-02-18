@@ -41,6 +41,16 @@ export const service = (axios: AxiosInstance) => {
     // products
     getProducts: () => api.get('/shoes'),
     getProduct: (id: string) => api.get(`/shoes/${id}`),
+
+    // cart
+    getListCart: () => api.get('/carts'),
+    postItemToCart: (opt: AxiosRequestConfig) => api.post('/carts/items', opt),
+    putItemCart: (opt: AxiosRequestConfig, shoeId: number, variant: string) => 
+      api.put(`/carts/items/${shoeId}/${variant}`, opt),
+    postCheckout: (opt: AxiosRequestConfig) => api.post('/carts/checkout', opt),
+
+    // transactions
+    getTransactions: () => api.get('/transactions'),
   }
 
   return apiResource

@@ -10,7 +10,7 @@ function Navbar() {
         {
           isLoggedIn() ? (
             <div className="flex gap-4">
-              <a href="/products" className="mr-4 block">Cart</a>
+              <a href="/cart" className="mr-4 block">Cart</a>
               <a href="/profile" className="mr-4 block">Profile</a>
               <p onClick={()=> logout()} className="cursor-pointer">Logout</p>
             </div>

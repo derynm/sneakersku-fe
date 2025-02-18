@@ -3,9 +3,11 @@ import useProduct from '../../hooks/useProduct';
 
 import { useParams } from 'react-router-dom';
 import QuantityAdjuster from '../../components/base/InputQuantity';
+import useCart from '../../hooks/useCart';
 
 function Detail() {
   const { getProduct, product, loading } = useProduct();
+  const { postItemToCart } = useCart();
   const { id } = useParams();
 
 
@@ -33,6 +35,15 @@ function Detail() {
     setQuantity(newQuantity);
   };
 
+  const handleAddToCart = () => {
+    const data = {
+      shoeId: parseInt(id as string),
+      variantKey: selectedVariant,
+      quantity: quantity
+    }
+    postItemToCart(data);
+  }
+
   if (loading.getProduct) {
     return <div className="text-center p-4">Loading...</div>;
   }
@@ -57,12 +68,12 @@ function Detail() {
               ))}
             </div>
           </div>
-          <p>{quantity}</p>
           <QuantityAdjuster onQuantityChange={handleQuantityChange} />
           <button 
             type="submit"
             className="bg-blue-500 text-white rounded-lg p-2 w-full disabled:opacity-50"
             disabled={!selectedVariant}
+            onClick={handleAddToCart}
             >
                 Add To Cart
             </button>

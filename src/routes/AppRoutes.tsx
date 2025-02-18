@@ -6,6 +6,8 @@ import Register from "../pages/auth/register";
 import Layout from "../components/base/Layout";
 import Detail from "../pages/product/detail";
 import Profile from "../pages/user/profile";
+import Cart from "../pages/cart";
+import Transaction from "../pages/transaction";
 
 const AppRoutes = () => {
     return (
@@ -15,6 +17,8 @@ const AppRoutes = () => {
             <Route path="/" element={<Home />} />
             <Route path="product/:id" element={<Detail />} />
             <Route path="profile" element={<Profile />} />
+            <Route path="cart" element={<Cart />} />
+            <Route path="transaction" element={<Transaction />} />
           </Route>
 
           <Route path="/login" element={<Login />} />
